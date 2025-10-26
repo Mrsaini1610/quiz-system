@@ -46,10 +46,10 @@
             @else
             <span class='text-green-500 font-bold'>Quiz : {{session('quizDetails')->name}}</span>
             <h2 class=" text-2xl text-center text-gray-800 mb-6">Add MCQ's</h2>
-            <form action="/" method="get" class=" space-y-4">
+            <form action="/add-mcq" method="post" class=" space-y-4">
 
                 <div>
-
+                    @csrf
                     <textarea type="text" placeholder="Enter your question" name="question"
                         class=" w-full px-4 py-2 focus:outline-none border border-gray-300 rounded-xl"></textarea>
                     @error('category')
@@ -57,26 +57,30 @@
 
                     </div>@enderror
                 </div>
-                <div> <input type="text" placeholder="Enter first option" name="quiz"
+                <div> <input type="text" placeholder="Enter first option" name="a"
                         class=" w-full px-4 py-2 focus:outline-none border border-gray-300 rounded-xl"></div>
-                <div> <input type="text" placeholder="Enter second option" name="quiz"
+                <div> <input type="text" placeholder="Enter second option" name="b"
                         class=" w-full px-4 py-2 focus:outline-none border border-gray-300 rounded-xl"></div>
-                <div> <input type="text" placeholder="Enter third option" name="quiz"
+                <div> <input type="text" placeholder="Enter third option" name="c"
                         class=" w-full px-4 py-2 focus:outline-none border border-gray-300 rounded-xl"></div>
-                <div> <input type="text" placeholder="Enter forth option" name="quiz"
+                <div> <input type="text" placeholder="Enter forth option" name="d"
                         class=" w-full px-4 py-2 focus:outline-none border border-gray-300 rounded-xl"></div>
                 <div>
-                    <select name="right_answar"
+                    <select name="correct_ans"
                         class=" w-full px-4 py-2 focus:outline-none border border-gray-300 rounded-xl">
-            
-                <option>Select Right Answar</option>
-                <option value="" class="value">A</option>
-                <option value="" class="value">B</option>
-                <option value="" class="value">C</option>
-                <option value="" class="value">D</option></select>    </div>  
 
-                <button type="submit" class=" w-full bg-blue-500 rounded-xl px-4 py-2 text-white b">Add</button>
-                <button type="submit" class=" w-full bg-blue-500 rounded-xl px-4 py-2 text-white b">Add & Submit</button>
+                        <option>Select Right Answar</option>
+                        <option value="a" class="value">A</option>
+                        <option value="b" class="value">B</option>
+                        <option value="c" class="value">C</option>
+                        <option value="d" class="value">D</option>
+                    </select>
+                </div>
+
+                <button type="submit"  name="submit" value="add-more"
+                    class=" w-full bg-blue-500 rounded-xl px-4 py-2 text-white b">Add</button>
+                <button type="submit" name="submit" value="done" class=" w-full bg-blue-500 rounded-xl px-4 py-2 text-white b">Add &
+                    Submit</button>
         </div>
 
 
